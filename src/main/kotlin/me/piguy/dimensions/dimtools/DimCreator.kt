@@ -12,9 +12,6 @@ import net.minecraft.world.World
 
 class DimCreator {
   fun createNewVoid(world: ServerWorld, name: String) {
-    SharedConstants.isDevelopment = true
-
-
     if (world.isClient) {
       return
     }
