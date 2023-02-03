@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "dimensions",
+  "version": "${version}",
+  "name": "dimensions",
+  "description": "Dynamic dimensions",
+  "authors": [
+    "thepiguy_"
+  ],
+  "contact": {
+    "homepage": "https://github.com/RocKing1001/dynamic-dimension-generator",
+    "sources": "https://github.com/RocKing1001/dynamic-dimension-generator"
+  },
+  "license": "MIT",
+  "icon": "assets/dimensions/icon.png",
+  "environment": "*",
+  "accessWidener": "archaios.accesswidener",
+  "entrypoints": {
+    "main": [
+      {
+        "value": "me.piguy.dimensions.DimensionsMod",
+        "adapter": "kotlin"
+      }
+    ],
+    "client": [
+      {
+        "value": "me.piguy.dimensions.client.ClientInit",
+        "adapter": "kotlin"
+      }
+    ]
+  },
+  "mixins": [
+    "dimensions.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.13",
+    "minecraft": "~1.19.2",
+    "java": ">=17",
+    "fabric-api": "*",
+    "fabric-language-kotlin": ">=1.8.0",
+    "owo-lib": "*"
+  }
+}
