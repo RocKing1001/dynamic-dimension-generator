@@ -37,7 +37,7 @@ object DimManager {
       return server.getWorld(worldKey)!!
     }
 
-    return createDim(server, map, worldKey /* dimensionFactory */)
+    return createDim(server, map, worldKey)
   }
 
 
@@ -57,7 +57,9 @@ object DimManager {
   ): ServerWorld {
     val overworld = server.overworld
 
-    val dimensionKey = RegistryKey.of(Registry.DIMENSION_KEY, worldKey.value)
+    val newDimIdentifier = worldKey.value
+
+    val dimensionKey = RegistryKey.of(Registry.DIMENSION_KEY, newDimIdentifier)
 
 
     val dimension = getDimensionOptions(overworld)
@@ -104,7 +106,7 @@ object DimManager {
 
     for (player in server.playerManager.playerList) {
       logger.info("sending packet to ${player.name.string}")
-      MY_CHANNEL.serverHandle(player).send(DimensionListChange(worldKey.registry))
+      MY_CHANNEL.serverHandle(player).send(DimensionListChange(newDimIdentifier))
     }
 
     return newWorld
